@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obat Farmokologis - Panduan Medis</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c5282 0%, #2d3748 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="cross" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M10 5v10M5 10h10" stroke="rgba(255,255,255,0.1)" stroke-width="1" fill="none"/></pattern></defs><rect width="100" height="100" fill="url(%23cross)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .medical-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #48bb78;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(72, 187, 120, 0.3);
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(72, 187, 120, 0.4);
+        }
+
+        .definition-card {
+            background: linear-gradient(135deg, #edf2f7 0%, #e2e8f0 100%);
+            border-left: 5px solid #4299e1;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .definition-card h2 {
+            color: #2d3748;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .definition-card p {
+            color: #4a5568;
+            font-size: 1.1rem;
+        }
+
+        .medication-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .medication-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .medication-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #4299e1, #48bb78);
+        }
+
+        .medication-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .medication-header {
+            margin-bottom: 20px;
+        }
+
+        .medication-image {
+            display: block;
+            margin: 25px auto 20px auto;
+            width: 50%;
+            height: 50%;
+            border-radius: 10px 10px 10px 10px;
+            object-fit: cover;
+            border-bottom: 0 solid #e2e8f0;
+        }
+
+        .medication-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin: 0 0 15px 0;
+            text-align: center;
+        }
+
+        .medication-category {
+            background: linear-gradient(135deg, #ed8936 0%, #dd6b20 100%);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .benefit-section, .dosage-section {
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            color: #2d3748;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .benefit-text {
+            color: #4a5568;
+            background: #f7fafc;
+            padding: 12px;
+            border-radius: 8px;
+        }
+
+        .dosage-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .dosage-list li {
+            background: #f7fafc;
+            padding: 10px 15px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            border-left: 3px solid #4299e1;
+            color: #4a5568;
+            position: relative;
+            padding-left: 35px;
+        }
+
+        .dosage-list li::before {
+            content: '•';
+            color: #4299e1;
+            font-weight: bold;
+            position: absolute;
+            left: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .medication-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .medication-card {
+                padding: 20px;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container fade-in">
+        <div class="header">
+            <div class="medical-icon">
+                <i class="fas fa-pills"></i>
+            </div>
+            <h1>Obat Farmokologis</h1>
+            <p class="subtitle">Panduan Lengkap Obat-obatan untuk Terapi Medis</p>
+        </div>
+
+        <div class="content">
+            <a href="index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+                Kembali ke Beranda
+            </a>
+
+            <div class="definition-card">
+                <h2>
+                    <i class="fas fa-info-circle" style="color: #4299e1;"></i>
+                    Apa itu Obat Farmokologis?
+                </h2>
+                <p>
+                    Obat farmokologis adalah senyawa kimia yang digunakan untuk mencegah, mengobati, atau mendiagnosis penyakit. 
+                    Obat-obatan ini bekerja dengan berinteraksi secara spesifik dengan target molekuler dalam tubuh, seperti reseptor, 
+                    enzim, atau saluran ion. Setiap obat memiliki mekanisme kerja yang unik dan harus digunakan sesuai dengan petunjuk 
+                    dokter untuk memastikan keamanan dan efektivitas pengobatan.
+                </p>
+            </div>
+
+            <div class="medication-grid">
+                <div class="medication-card">
+                    <div class="medication-header">
+                        <img src="aset/amlodipine.png" alt="Amlodipine 5mg" class="medication-image">
+                        <h3 class="medication-name">Amlodipine 5 mg</h3>
+                    </div>
+                    <div class="medication-category">Calcium Channel Blocker (CCB)</div>
+                    <div class="benefit-section">
+                        <div class="section-title">
+                            <i class="fas fa-heart" style="color: #48bb78;"></i>
+                            Manfaat
+                        </div>
+                        <div class="benefit-text">
+                            Mengendurkan dan melebarkan pembuluh darah, sehingga tekanan darah menurun.
+                        </div>
+                    </div>
+                    <div class="dosage-section">
+                        <div class="section-title">
+                            <i class="fas fa-clock" style="color: #4299e1;"></i>
+                            Anjuran Minum
+                        </div>
+                        <ul class="dosage-list">
+                            <li>1 kali sehari, 1 tablet</li>
+                            <li>Sebaiknya dikonsumsi pada waktu yang sama setiap hari</li>
+                            <li>Bisa diminum sebelum atau sesudah makan</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="medication-card">
+                    <div class="medication-header">
+                        <img src="aset/captopril.png" alt="Captopril 25mg" class="medication-image">
+                        <h3 class="medication-name">Captopril 25 mg</h3>
+                    </div>
+                    <div class="medication-category">ACE Inhibitor</div>
+                    <div class="benefit-section">
+                        <div class="section-title">
+                            <i class="fas fa-heart" style="color: #48bb78;"></i>
+                            Manfaat
+                        </div>
+                        <div class="benefit-text">
+                            Menurunkan tekanan darah dan melindungi jantung serta ginjal.
+                        </div>
+                    </div>
+                    <div class="dosage-section">
+                        <div class="section-title">
+                            <i class="fas fa-clock" style="color: #4299e1;"></i>
+                            Anjuran Minum
+                        </div>
+                        <ul class="dosage-list">
+                            <li>2–3 kali sehari, 1 tablet</li>
+                            <li>Diminum 30–60 menit sebelum makan</li>
+                            <li>Harus diminum secara teratur agar efektif</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="medication-card">
+                    <div class="medication-header">
+                        <img src="aset/losartan.png" alt="Losartan 50mg" class="medication-image">
+                        <h3 class="medication-name">Losartan 50 mg</h3>
+                    </div>
+                    <div class="medication-category">Angiotensin II Receptor Blocker (ARB)</div>
+                    <div class="benefit-section">
+                        <div class="section-title">
+                            <i class="fas fa-heart" style="color: #48bb78;"></i>
+                            Manfaat
+                        </div>
+                        <div class="benefit-text">
+                            Menurunkan tekanan darah, memperbaiki aliran darah, dan menjaga fungsi ginjal.
+                        </div>
+                    </div>
+                    <div class="dosage-section">
+                        <div class="section-title">
+                            <i class="fas fa-clock" style="color: #4299e1;"></i>
+                            Anjuran Minum
+                        </div>
+                        <ul class="dosage-list">
+                            <li>1 kali sehari, 1 tablet</li>
+                            <li>Bisa diminum sebelum atau sesudah makan</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="medication-card">
+                    <div class="medication-header">
+                        <img src="aset/Bisoprolol.png" alt="Bisoprolol 5mg" class="medication-image">
+                        <h3 class="medication-name">Bisoprolol 5 mg</h3>
+                    </div>
+                    <div class="medication-category">Beta Blocker</div>
+                    <div class="benefit-section">
+                        <div class="section-title">
+                            <i class="fas fa-heart" style="color: #48bb78;"></i>
+                            Manfaat
+                        </div>
+                        <div class="benefit-text">
+                            Menurunkan detak jantung dan tekanan darah, mencegah komplikasi jantung.
+                        </div>
+                    </div>
+                    <div class="dosage-section">
+                        <div class="section-title">
+                            <i class="fas fa-clock" style="color: #4299e1;"></i>
+                            Anjuran Minum
+                        </div>
+                        <ul class="dosage-list">
+                            <li>1 kali sehari, 1 tablet di pagi hari</li>
+                            <li>Diminum secara teratur dan jangan dihentikan mendadak</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="medication-card">
+                    <div class="medication-header">
+                        <img src="aset/hydrochlorothiazi.png" alt="Hydrochlorothiazide 25mg" class="medication-image">
+                        <h3 class="medication-name">Hydrochlorothiazide 25 mg</h3>
+                    </div>
+                    <div class="medication-category">Diuretik (peluruh cairan)</div>
+                    <div class="benefit-section">
+                        <div class="section-title">
+                            <i class="fas fa-heart" style="color: #48bb78;"></i>
+                            Manfaat
+                        </div>
+                        <div class="benefit-text">
+                            Membantu mengurangi volume cairan tubuh dan menurunkan tekanan darah.
+                        </div>
+                    </div>
+                    <div class="dosage-section">
+                        <div class="section-title">
+                            <i class="fas fa-clock" style="color: #4299e1;"></i>
+                            Anjuran Minum
+                        </div>
+                        <ul class="dosage-list">
+                            <li>1 kali sehari, 1 tablet di pagi hari</li>
+                            <li>Hindari minum di malam hari untuk mencegah sering buang air kecil saat tidur</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add smooth scrolling and animation effects
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.medication-card');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+                card.classList.add('fade-in');
+            });
+        });
+
+        // Add hover effects
+        document.querySelectorAll('.medication-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>

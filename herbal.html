@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramuan Herbal Alami - Panduan Kesehatan</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 50%, #2f855a 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 25px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2f855a 0%, #276749 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="leaves" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M15 5c5 0 10 5 10 10s-5 10-10 10-10-5-10-10 5-10 10-10z" stroke="rgba(255,255,255,0.1)" stroke-width="1" fill="none"/></pattern></defs><rect width="100" height="100" fill="url(%23leaves)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        .nature-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: #68d391;
+            position: relative;
+            z-index: 1;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
+            color: white;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            margin-bottom: 35px;
+            box-shadow: 0 6px 20px rgba(56, 161, 105, 0.3);
+        }
+
+        .back-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(56, 161, 105, 0.4);
+            background: linear-gradient(135deg, #2f855a 0%, #276749 100%);
+        }
+
+        .herbal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .herbal-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .herbal-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #48bb78, #38a169, #2f855a);
+        }
+
+        .herbal-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+        }
+
+        .herbal-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .herbal-image-container {
+            width: 120px;
+            height: 120px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #f0fff4 0%, #e6fffa 100%);
+            border: 4px solid #48bb78;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 8px 25px rgba(72, 187, 120, 0.2);
+        }
+
+        .herbal-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .herbal-image:hover {
+            transform: scale(1.05);
+        }
+
+        .herbal-emoji-fallback {
+            font-size: 4rem;
+            color: #48bb78;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .herbal-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin: 0;
+            flex: 1;
+        }
+
+        .benefit-section {
+            background: linear-gradient(135deg, #f0fff4 0%, #e6fffa 100%);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            border-left: 5px solid #48bb78;
+        }
+
+        .section-title {
+            color: #2f855a;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .benefit-text {
+            color: #2d3748;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .ingredients-section, .instructions-section, .dosage-section {
+            margin-bottom: 25px;
+        }
+
+        .ingredients-list, .instructions-list, .dosage-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .ingredients-list li {
+            background: #f7fafc;
+            padding: 12px 18px;
+            margin-bottom: 8px;
+            border-radius: 10px;
+            border-left: 4px solid #48bb78;
+            color: #4a5568;
+            position: relative;
+            padding-left: 40px;
+            transition: all 0.2s ease;
+        }
+
+        .ingredients-list li:hover {
+            background: #edf2f7;
+            transform: translateX(5px);
+        }
+
+        .ingredients-list li::before {
+            content: '🌿';
+            position: absolute;
+            left: 15px;
+            font-size: 1.1rem;
+        }
+
+        .instructions-list li {
+            background: #fffaf0;
+            padding: 12px 18px;
+            margin-bottom: 8px;
+            border-radius: 10px;
+            border-left: 4px solid #ed8936;
+            color: #4a5568;
+            position: relative;
+            padding-left: 50px;
+            transition: all 0.2s ease;
+        }
+
+        .instructions-list li:hover {
+            background: #fef5e7;
+            transform: translateX(5px);
+        }
+
+        .instructions-list li::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            left: 15px;
+            background: #ed8936;
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .instructions-list {
+            counter-reset: step-counter;
+        }
+
+        .dosage-list li {
+            background: #fef7f0;
+            padding: 12px 18px;
+            margin-bottom: 8px;
+            border-radius: 10px;
+            border-left: 4px solid #f56565;
+            color: #4a5568;
+            position: relative;
+            padding-left: 40px;
+            transition: all 0.2s ease;
+        }
+
+        .dosage-list li:hover {
+            background: #fed7d7;
+            transform: translateX(5px);
+        }
+
+        .dosage-list li::before {
+            content: '⚠️';
+            position: absolute;
+            left: 15px;
+            font-size: 1.1rem;
+        }
+
+        .warning-text {
+            color: #e53e3e;
+            font-weight: 600;
+            font-style: italic;
+        }
+
+
+
+        @media (max-width: 768px) {
+            .herbal-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .content {
+                padding: 25px;
+            }
+            
+            .herbal-card {
+                padding: 25px;
+            }
+
+            .herbal-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+
+            .herbal-image-container {
+                width: 100px;
+                height: 100px;
+            }
+
+            .herbal-emoji-fallback {
+                font-size: 3rem;
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .leaf-decoration {
+            position: absolute;
+            opacity: 0.1;
+            z-index: 0;
+            color: #48bb78;
+            font-size: 2rem;
+            animation: leafFloat 6s ease-in-out infinite;
+        }
+
+        .leaf-decoration:nth-child(odd) {
+            animation-delay: -3s;
+        }
+
+        @keyframes leafFloat {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg); 
+            }
+            33% { 
+                transform: translateY(-15px) rotate(120deg); 
+            }
+            66% { 
+                transform: translateY(-5px) rotate(240deg); 
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container fade-in">
+        <div class="header">
+            <div class="nature-icon">
+                <i class="fas fa-leaf"></i>
+            </div>
+            <h1>Obat Tradisional</h1>
+            <p class="subtitle">Solusi Alami untuk Kesehatan Tekanan Darah</p>
+        </div>
+
+        <div class="content">
+            <a href="index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+                Kembali ke Beranda
+            </a>
+
+            <div class="herbal-grid">
+                <div class="herbal-card">
+                    <div class="leaf-decoration" style="top: 10px; right: 20px;">🍃</div>
+                    <div class="herbal-header">
+                        <div class="herbal-image-container">
+                            <!-- Ganti URL di bawah ini dengan URL gambar daun seledri Anda -->
+                            <img class="herbal-image" src=aset/Celery.jpeg alt="Daun Seledri">
+                        </div>
+                        <div>
+                            <h3 class="herbal-title">Ramuan Daun Seledri</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="benefit-section">
+                        <div class="section-title">
+                            <i class="fas fa-heart" style="color: #48bb78;"></i>
+                            Manfaat
+                        </div>
+                        <div class="benefit-text">
+                            Menurunkan tekanan darah dengan efek diuretik alami.
+                        </div>
+                    </div>
+
+                    <div class="ingredients-section">
+                        <div class="section-title">
+                            <i class="fas fa-seedling" style="color: #48bb78;"></i>
+                            Bahan
+                        </div>
+                        <ul class="ingredients-list">
+                            <li>3–5 tangkai daun seledri segar</li>
+                            <li>1 gelas air matang</li>
+                        </ul>
+                    </div>
+
+                    <div class="instructions-section">
+                        <div class="section-title">
+                            <i class="fas fa-list-ol" style="color: #ed8936;"></i>
+                            Cara Membuat
+                        </div>
+                        <ol class="instructions-list">
+                            <li>Cuci bersih daun seledri.</li>
+                            <li>Blender bersama 1 gelas air hingga halus.</li>
+                            <li>Saring airnya jika ingin lebih jernih.</li>
+                        </ol>
+                    </div>
+
+                    <div class="dosage-section">
+                        <div class="section-title">
+                            <i class="fas fa-clock" style="color: #f56565;"></i>
+                            Anjuran Minum
+                        </div>
+                        <ul class="dosage-list">
+                            <li>Minum 1 gelas per hari, pagi hari sebelum makan.</li>
+                            <li class="warning-text">Jangan dikonsumsi berlebihan karena dapat menyebabkan tekanan darah terlalu rendah.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="herbal-card">
+                    <div class="leaf-decoration" style="top: 15px; right: 25px;">🍃</div>
+                    <div class="herbal-header">
+                        <div class="herbal-image-container">
+                            <!-- Ganti URL di bawah ini dengan URL gambar semangka Anda -->
+                            <img class="herbal-image" src=aset/semangka.jpeg alt="Semangka">
+                        </div>
+                        <div>
+                            <h3 class="herbal-title">Jus Semangka Tanpa Gula</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="benefit-section">
+                        <div class="section-title">
+                            <i class="fas fa-heart" style="color: #48bb78;"></i>
+                            Manfaat
+                        </div>
+                        <div class="benefit-text">
+                            Semangka mengandung citrulline yang membantu melancarkan aliran darah dan mengurangi tekanan darah.
+                        </div>
+                    </div>
+
+                    <div class="ingredients-section">
+                        <div class="section-title">
+                            <i class="fas fa-seedling" style="color: #48bb78;"></i>
+                            Bahan
+                        </div>
+                        <ul class="ingredients-list">
+                            <li>1 potong besar semangka matang (tanpa biji)</li>
+                            <li>½ gelas air</li>
+                        </ul>
+                    </div>
+
+                    <div class="instructions-section">
+                        <div class="section-title">
+                            <i class="fas fa-list-ol" style="color: #ed8936;"></i>
+                            Cara Membuat
+                        </div>
+                        <ol class="instructions-list">
+                            <li>Blender semangka tanpa menambahkan gula.</li>
+                            <li>Bisa disaring atau diminum langsung.</li>
+                        </ol>
+                    </div>
+
+                    <div class="dosage-section">
+                        <div class="section-title">
+                            <i class="fas fa-clock" style="color: #f56565;"></i>
+                            Anjuran Minum
+                        </div>
+                        <ul class="dosage-list">
+                            <li>1 gelas pagi hari atau setelah olahraga ringan.</li>
+                            <li class="warning-text">Hindari menambahkan gula atau sirup.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="herbal-card">
+                    <div class="leaf-decoration" style="top: 20px; right: 30px;">🍃</div>
+                    <div class="herbal-header">
+                        <div class="herbal-image-container">
+                            <!-- Ganti URL di bawah ini dengan URL gambar daun jambu biji Anda -->
+                            <img class="herbal-image" src=aset/jambu.jpeg alt="Daun Jambu Biji">
+                        </div>
+                        <div>
+                            <h3 class="herbal-title">Teh Daun Jambu Biji Muda</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="benefit-section">
+                        <div class="section-title">
+                            <i class="fas fa-heart" style="color: #48bb78;"></i>
+                            Manfaat
+                        </div>
+                        <div class="benefit-text">
+                            Mengandung antioksidan yang membantu menjaga elastisitas pembuluh darah dan menstabilkan tekanan darah.
+                        </div>
+                    </div>
+
+                    <div class="ingredients-section">
+                        <div class="section-title">
+                            <i class="fas fa-seedling" style="color: #48bb78;"></i>
+                            Bahan
+                        </div>
+                        <ul class="ingredients-list">
+                            <li>3–5 lembar daun jambu biji muda</li>
+                            <li>2 gelas air</li>
+                        </ul>
+                    </div>
+
+                    <div class="instructions-section">
+                        <div class="section-title">
+                            <i class="fas fa-list-ol" style="color: #ed8936;"></i>
+                            Cara Membuat
+                        </div>
+                        <ol class="instructions-list">
+                            <li>Cuci bersih daun jambu biji.</li>
+                            <li>Rebus dengan 2 gelas air sampai tersisa 1 gelas.</li>
+                            <li>Dinginkan dan saring.</li>
+                        </ol>
+                    </div>
+
+                    <div class="dosage-section">
+                        <div class="section-title">
+                            <i class="fas fa-clock" style="color: #f56565;"></i>
+                            Anjuran Minum
+                        </div>
+                        <ul class="dosage-list">
+                            <li>1 kali sehari, sore hari setelah makan.</li>
+                            <li class="warning-text">Tidak disarankan diminum setiap hari selama lebih dari 7 hari tanpa jeda.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="herbal-card">
+                    <div class="leaf-decoration" style="top: 25px; right: 35px;">🍃</div>
+                    <div class="herbal-header">
+                        <div class="herbal-image-container">
+                            <!-- Ganti URL di bawah ini dengan URL gambar belimbing Anda -->
+                            <img class="herbal-image" src=aset/starfruit.jpeg alt="Belimbing Manis">
+                        </div>
+                        <div>
+                            <h3 class="herbal-title">Jus Belimbing Manis</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="benefit-section">
+                        <div class="section-title">
+                            <i class="fas fa-heart" style="color: #48bb78;"></i>
+                            Manfaat
+                        </div>
+                        <div class="benefit-text">
+                            Mengandung kalium dan antioksidan, membantu menjaga kestabilan tekanan darah.
+                        </div>
+                    </div>
+
+                    <div class="ingredients-section">
+                        <div class="section-title">
+                            <i class="fas fa-seedling" style="color: #48bb78;"></i>
+                            Bahan
+                        </div>
+                        <ul class="ingredients-list">
+                            <li>1 buah belimbing manis matang</li>
+                            <li>½ gelas air</li>
+                        </ul>
+                    </div>
+
+                    <div class="instructions-section">
+                        <div class="section-title">
+                            <i class="fas fa-list-ol" style="color: #ed8936;"></i>
+                            Cara Membuat
+                        </div>
+                        <ol class="instructions-list">
+                            <li>Cuci dan potong belimbing.</li>
+                            <li>Blender dengan sedikit air tanpa gula.</li>
+                            <li>Saring jika ingin tekstur lebih halus.</li>
+                        </ol>
+                    </div>
+
+                    <div class="dosage-section">
+                        <div class="section-title">
+                            <i class="fas fa-clock" style="color: #f56565;"></i>
+                            Anjuran Minum
+                        </div>
+                        <ul class="dosage-list">
+                            <li>1 kali sehari, siang atau sore hari setelah makan.</li>
+                            <li class="warning-text">Jangan dikonsumsi jika memiliki gangguan ginjal.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add smooth scrolling and animation effects
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.herbal-card');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.2}s`;
+                card.classList.add('fade-in');
+            });
+        });
+
+        // Add interactive hover effects
+        document.querySelectorAll('.herbal-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-12px) scale(1.03)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Add floating animation to leaf decorations
+        document.querySelectorAll('.leaf-decoration').forEach((leaf, index) => {
+            leaf.style.animationDelay = `${index * 1.5}s`;
+        });
+    </script>
+</body>
+</html>

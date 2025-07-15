@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hipertensi: Pembunuh Diam-Diam</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #ff6b6b, #ffd93d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 30px;
+        }
+
+        .heart-icon {
+            font-size: 4rem;
+            color: #ff6b6b;
+            animation: heartbeat 2s infinite;
+            margin: 20px 20px;
+        }
+
+        .heart-icon img {
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+        }
+
+        .content-section {
+            background: rgba(255,255,255,0.95);
+            margin: 30px 0;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            animation: slideInUp 0.8s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1);
+            animation: shimmer 2s infinite;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+            animation: underlineExpand 2s ease-out forwards;
+        }
+
+        .definition-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .definition-box::before {
+            content: '"';
+            font-size: 6rem;
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            opacity: 0.3;
+            font-family: serif;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .symptoms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .symptom-item {
+            background: linear-gradient(135deg, #4ecdc4, #44a08d);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            animation: pulse 2s infinite;
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .symptom-item img {
+            width: 30px;
+            height: 30px;
+            object-fit: contain;
+        }
+
+        .symptom-item:hover {
+            transform: scale(1.05);
+            animation: none;
+        }
+
+        .causes-list {
+            list-style: none;
+            margin: 25px 0;
+        }
+
+        .causes-list li {
+            background: linear-gradient(90deg, #a8edea, #fed6e3);
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #ff6b6b;
+            animation: slideInRight 0.8s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .causes-list li::before {
+            content: '';
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background-image: url('path/to/your/warning-icon.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        /* Fallback jika gambar tidak tersedia */
+        .causes-list li.emoji-fallback::before {
+            content: '⚠️';
+            background-image: none;
+            font-size: 1.5rem;
+            width: auto;
+            height: auto;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #ff9a9e, #fecfef);
+            border: 2px solid #ff6b6b;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            animation: glow 2s infinite alternate;
+        }
+
+        .cta-section {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin: 30px 0;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #ff6b6b, #ffd93d);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .cta-button.secondary {
+            background: linear-gradient(45deg, #4ecdc4, #44a08d);
+        }
+
+
+        .back-button:hover {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        .blood-pressure-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 30px 0;
+        }
+
+        .bp-gauge {
+            width: 200px;
+            height: 100px;
+            border: 8px solid #ddd;
+            border-top: 8px solid #ff6b6b;
+            border-radius: 100px 100px 0 0;
+            position: relative;
+            animation: gaugeAnimation 3s ease-in-out infinite;
+        }
+
+        .bp-needle {
+            width: 4px;
+            height: 80px;
+            background: #333;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform-origin: bottom;
+            transform: translateX(-50%) rotate(45deg);
+            animation: needleMove 3s ease-in-out infinite;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 0 20px rgba(255, 107, 107, 0.3); }
+            to { box-shadow: 0 0 30px rgba(255, 107, 107, 0.6); }
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        @keyframes underlineExpand {
+            to { width: 100%; }
+        }
+
+        @keyframes gaugeAnimation {
+            0%, 100% { border-top-color: #4ecdc4; }
+            50% { border-top-color: #ff6b6b; }
+        }
+
+        @keyframes needleMove {
+            0%, 100% { transform: translateX(-50%) rotate(15deg); }
+            50% { transform: translateX(-50%) rotate(75deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .content-section {
+                padding: 25px;
+                margin: 20px 0;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .symptoms-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll animations */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+        <header>
+            <div class="heart-icon">
+                <!-- Ganti dengan gambar Anda -->
+                <img src="aset/hipertensi.png" alt="Heart Icon">
+                <!-- Atau tetap gunakan emoji jika gambar tidak tersedia -->
+                <!-- ❤️ -->
+            </div>
+            <h1>HIPERTENSI</h1>
+            <p class="subtitle">Pembunuh Diam-Diam yang Harus Diwaspadai</p>
+        </header>
+
+        <section class="content-section scroll-reveal">
+            <h2>Apa Itu Hipertensi?</h2>
+            
+            <div class="definition-box">
+                <p>Hipertensi adalah kondisi medis di mana tekanan darah dalam arteri meningkat melebihi batas normal secara terus-menerus. Tekanan darah diukur dengan dua angka, yaitu tekanan sistolik (tekanan saat jantung berkontraksi memompa darah) dan tekanan diastolik (tekanan saat jantung beristirahat).</p>
+            </div>
+
+            <div class="blood-pressure-visual">
+                <div class="bp-gauge">
+                    <div class="bp-needle"></div>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">140</div>
+                    <div>mmHg Sistolik</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">90</div>
+                    <div>mmHg Diastolik</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">80%</div>
+                    <div>Hipertensi Esensial</div>
+                </div>
+            </div>
+
+            <p>Seseorang dikatakan mengalami hipertensi jika tekanan darah sistoliknya sama dengan atau lebih dari 140 mmHg dan/atau tekanan diastoliknya sama dengan atau lebih dari 90 mmHg pada pengukuran berulang dalam kondisi istirahat.</p>
+        </section>
+
+        <section class="content-section scroll-reveal">
+            <h2>Mengapa Disebut "Pembunuh Diam-Diam"?</h2>
+            
+            <div class="warning-box">
+                <h3>⚠️ Perhatian!</h3>
+                <p>Hipertensi sering disebut sebagai "pembunuh diam-diam" karena biasanya tidak menunjukkan gejala yang jelas, meskipun beberapa orang mungkin merasakan berbagai keluhan.</p>
+            </div>
+
+            <h3>Gejala yang Mungkin Dirasakan:</h3>
+            <div class="symptoms-grid">
+                <div class="symptom-item">Sakit Kepala</div>
+                <div class="symptom-item">Pusing</div>
+                <div class="symptom-item">Jantung Berdebar</div>
+                <div class="symptom-item">Nyeri Dada</div>
+                <div class="symptom-item">Gelisah</div>
+                <div class="symptom-item">Penglihatan Kabur</div>
+                <div class="symptom-item">Mudah Lelah</div>
+            </div>
+
+            <p>Jika tidak ditangani, hipertensi dapat menyebabkan komplikasi serius seperti penyakit jantung, stroke, gagal ginjal, dan kerusakan pembuluh darah. Tekanan darah tinggi membuat jantung bekerja lebih keras untuk memompa darah ke seluruh tubuh, yang lama-kelamaan dapat menyebabkan pembesaran jantung dan kerusakan organ-organ vital.</p>
+        </section>
+
+        <section class="content-section scroll-reveal">
+            <h2>Penyebab Hipertensi pada Remaja</h2>
+            
+            <ul class="causes-list">
+                <li>
+                    <strong>Hipertensi Esensial (Primer)</strong><br>
+                    Penyebab paling umum, sekitar 80% kasus hipertensi pada remaja. Tidak diketahui penyebab pastinya, namun diduga kuat dipengaruhi oleh faktor genetik dan gaya hidup tidak sehat seperti pola makan tinggi garam, lemak, gula, kurang aktivitas fisik, dan stres.
+                </li>
+                
+                <li>
+                    <strong>Hipertensi Sekunder</strong><br>
+                    Disebabkan oleh penyakit tertentu, seperti gangguan ginjal, kelainan pembuluh darah (misalnya aorta), gangguan tiroid, sleep apnea, dan penyakit paru obstruktif kronis (PPOK).
+                </li>
+                
+                <li>
+                    <strong>Faktor Gaya Hidup</strong><br>
+                    Konsumsi makanan tinggi garam, lemak jenuh, gula, kurang olahraga, dan stres juga sangat berperan meningkatkan risiko hipertensi pada remaja.
+                </li>
+            </ul>
+        </section>
+
+        <section class="content-section scroll-reveal">
+            <h2>Penanganan</h2>
+            
+            <div class="warning-box">
+                <h3>Pentingnya Penanganan Komprehensif</h3>
+                <p>Penanganan hipertensi memerlukan pendekatan menyeluruh yang melibatkan deteksi dini dan perubahan gaya hidup yang berkelanjutan.</p>
+            </div>
+
+            <ul class="causes-list">
+                <li>
+                    <strong>Deteksi Dini</strong><br>
+                    Pemeriksaan tekanan darah secara rutin sangat penting untuk mendeteksi hipertensi sejak awal. Pemeriksaan ini sebaiknya dilakukan minimal setiap 6 bulan atau sesuai anjuran dokter, terutama bagi mereka yang memiliki faktor risiko.
+                </li>
+                
+                <li>
+                    <strong>Perubahan Gaya Hidup</strong><br>
+                    Menerapkan pola makan sehat rendah garam dan lemak, meningkatkan aktivitas fisik secara teratur minimal 30 menit per hari, mengelola stres dengan baik melalui teknik relaksasi atau hobi positif.
+                </li>
+                
+                <li>
+                    <strong>Pengobatan Farmakologis</strong><br>
+                    Jika diperlukan, dokter akan meresepkan obat antihipertensi yang sesuai dengan kondisi pasien. Penting untuk mengonsumsi obat secara teratur sesuai anjuran dokter dan tidak menghentikan pengobatan tanpa konsultasi.
+                </li>
+            </ul>
+        </section>
+
+        <section class="cta-section scroll-reveal">
+            <h2>Pentingnya Deteksi Dini</h2>
+            <p>Oleh karena itu, penting untuk melakukan pemeriksaan tekanan darah secara rutin, menjalani gaya hidup sehat, dan mengikuti pengobatan sesuai anjuran dokter untuk mengontrol hipertensi.</p>
+            <div>
+                <a href="index.html" class="cta-button">Lakukan Deteksi Dini</a>
+                <a href="index.html" class="cta-button secondary">Kembali ke Beranda</a>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Scroll reveal animation
+        window.addEventListener('scroll', () => {
+            const reveals = document.querySelectorAll('.scroll-reveal');
+            
+            reveals.forEach(reveal => {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveal.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    reveal.classList.add('revealed');
+                }
+            });
+        });
+
+        // Add animation delays for better effect
+        window.addEventListener('load', () => {
+            const statCards = document.querySelectorAll('.stat-card');
+            statCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.2}s`;
+            });
+            
+            const causesItems = document.querySelectorAll('.causes-list li');
+            causesItems.forEach((item, index) => {
+                item.style.animationDelay = `${index * 0.3}s`;
+            });
+        });
+    </script>
+</body>
+</html>
