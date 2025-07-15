@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edukasi Gaya Hidup Sehat untuk Remaja</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+        }
+
+        .header {
+            /* Warna header disesuaikan dengan tema gaya hidup sehat */
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header .main-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #4a5568;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(74, 85, 104, 0.3);
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(74, 85, 104, 0.4);
+        }
+        
+        /* Grid untuk menampilkan poin-poin edukasi */
+        .lifestyle-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .lifestyle-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .lifestyle-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #4299e1, #48bb78);
+        }
+
+        .lifestyle-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .card-icon {
+            font-size: 2rem;
+            color: #48bb78;
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2d3748;
+        }
+        
+        .card-content ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .card-content li {
+            background: #f7fafc;
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            border-left: 3px solid #4299e1;
+            color: #4a5568;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-content li i {
+            color: #4299e1;
+        }
+
+        @media (max-width: 768px) {
+            .lifestyle-grid {
+                grid-template-columns: 1fr;
+            }
+            .header h1 {
+                font-size: 2rem;
+            }
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="main-icon">
+                <i class="fas fa-heart-pulse"></i>
+            </div>
+            <h1>Edukasi Gaya Hidup Sehat</h1>
+            <p class="subtitle">Kunci Utama untuk Remaja Tangguh dan Bebas Hipertensi</p>
+        </div>
+
+        <div class="content">
+            <a href="index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+                Kembali ke Beranda
+            </a>
+
+            <div class="lifestyle-grid">
+                
+                <div class="lifestyle-card">
+                    <div class="card-header">
+                        <i class="fas fa-utensils card-icon"></i>
+                        <h3 class="card-title">1. Makan Cerdas</h3>
+                    </div>
+                    <div class="card-content">
+                        <ul>
+                            <li><i class="fas fa-check"></i>Pilih makanan <i>real food</i>, bukan cuma <i>fast food</i>.</li>
+                            <li><i class="fas fa-check"></i>Perbanyak buah, sayur, dan air putih.</li>
+                            <li><i class="fas fa-check"></i>Batasi camilan ultra-proses (snack, boba, mie instan).</li>
+                            <li><i class="fas fa-check"></i>Sarapan itu penting, jangan dilewatkan!</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="lifestyle-card">
+                    <div class="card-header">
+                        <i class="fas fa-person-running card-icon"></i>
+                        <h3 class="card-title">2. Aktif Itu Keren</h3>
+                    </div>
+                    <div class="card-content">
+                        <ul>
+                            <li><i class="fas fa-check"></i>Bergerak itu gaya hidup: olahraga, jalan kaki, naik tangga.</li>
+                            <li><i class="fas fa-check"></i>Coba olahraga yang disukai: futsal, dance, basket, workout.</li>
+                            <li><i class="fas fa-check"></i>Matikan gadget sejenak, gerakkan badanmu!</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="lifestyle-card">
+                    <div class="card-header">
+                        <i class="fas fa-bed card-icon"></i>
+                        <h3 class="card-title">3. Tidur Adalah Investasi</h3>
+                    </div>
+                    <div class="card-content">
+                        <ul>
+                            <li><i class="fas fa-check"></i>Idealnya 7–9 jam tiap malam.</li>
+                            <li><i class="fas fa-check"></i>Jangan begadang tiap hari hanya demi scroll TikTok 😅.</li>
+                            <li><i class="fas fa-check"></i>Matikan HP 30 menit sebelum tidur.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="lifestyle-card">
+                    <div class="card-header">
+                        <i class="fas fa-brain card-icon"></i>
+                        <h3 class="card-title">4. Mental Health = Kesehatan</h3>
+                    </div>
+                    <div class="card-content">
+                        <ul>
+                            <li><i class="fas fa-check"></i>Nggak apa-apa untuk lelah atau sedih, cari <i>healing</i> yang sehat.</li>
+                            <li><i class="fas fa-check"></i>Jangan pendam sendiri, cerita ke teman atau keluarga.</li>
+                            <li><i class="fas fa-check"></i>Hindari pelampiasan negatif (merokok, alkohol, dll).</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="lifestyle-card">
+                    <div class="card-header">
+                        <i class="fas fa-mobile-screen-button card-icon"></i>
+                        <h3 class="card-title">5. Bijak Bersosmed</h3>
+                    </div>
+                    <div class="card-content">
+                        <ul>
+                            <li><i class="fas fa-check"></i>Saring sebelum sharing, bandingkan secukupnya.</li>
+                            <li><i class="fas fa-check"></i>Jangan ikut-ikutan tren berbahaya.</li>
+                            <li><i class="fas fa-check"></i>Follow akun edukatif & positif.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="lifestyle-card">
+                    <div class="card-header">
+                        <i class="fas fa-ban-smoking card-icon"></i>
+                        <h3 class="card-title">6. Say No!</h3>
+                    </div>
+                    <div class="card-content">
+                        <ul>
+                            <li><i class="fas fa-check"></i>Katakan tidak pada rokok, alkohol, & narkoba.</li>
+                            <li><i class="fas fa-check"></i>Bukan gaya, tapi jalan cepat ke kerusakan organ.</li>
+                            <li><i class="fas fa-check"></i>Berani beda itu keren.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="lifestyle-card">
+                    <div class="card-header">
+                        <i class="fas fa-stethoscope card-icon"></i>
+                        <h3 class="card-title">7. Periksa Rutin</h3>
+                    </div>
+                    <div class="card-content">
+                        <ul>
+                            <li><i class="fas fa-check"></i>Cek berat badan & tekanan darah secara berkala.</li>
+                            <li><i class="fas fa-check"></i>Jaga kesehatan mata & gigi.</li>
+                            <li><i class="fas fa-check"></i>Vaksinasi jangan ditunda.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
