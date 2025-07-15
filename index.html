@@ -31,41 +31,33 @@
         .content-wrapper { max-width: 800px; margin: 0 auto 60px auto; display: flex; flex-direction: column; gap: 40px; }
         .feature-section { width: 100%; border-radius: 20px; padding: 40px; color: white; box-shadow: 0 15px 30px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
         .feature-section:hover { transform: translateY(-5px); }
+        .unified-section { background: linear-gradient(135deg, #ff7e5f, #feb47b); }
 
-        /* KUESIONER SECTION */
-        .questionnaire-section { background: linear-gradient(135deg, #ff6b6b, #ee5a24); }
+        /* FORM GABUNGAN */
         .section-title { font-size: 28px; font-weight: 700; margin-bottom: 25px; text-align: center; }
-        .questionnaire-form, .edu-quiz-form { background: rgba(255,255,255,0.15); border-radius: 15px; padding: 30px; backdrop-filter: blur(8px); }
-        form fieldset { border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 15px; padding: 20px; margin-bottom: 20px; }
-        form legend { font-size: 1.2rem; font-weight: 600; padding: 0 10px; }
-        form .question, form .input-group-wrapper { margin-bottom: 20px; }
+        .unified-form { background: rgba(255,255,255,0.15); border-radius: 15px; padding: 30px; backdrop-filter: blur(8px); }
+        .unified-form fieldset { border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 15px; padding: 20px; margin-bottom: 25px; }
+        .unified-form legend { font-size: 1.3rem; font-weight: 600; padding: 0 10px; margin-bottom: 10px; }
+        .unified-form .question, .unified-form .input-group-wrapper { margin-bottom: 20px; }
         .input-group-wrapper { display: flex; gap: 20px; flex-wrap: wrap; }
-        form .input-group { flex: 1; min-width: 150px; }
-        form label { font-weight: 600; font-size: 16px; display: block; margin-bottom: 10px; }
-        form .options label { display: block; background: rgba(255, 255, 255, 0.85); color: #333; padding: 12px 15px; border-radius: 10px; margin-bottom: 8px; cursor: pointer; transition: all 0.2s ease-in-out; font-weight: 500; }
-        form .options label:hover { background: white; transform: scale(1.03); }
-        form .options input[type="radio"] { margin-right: 12px; transform: scale(1.1); }
-        .questionnaire-form .options input[type="radio"] { accent-color: #ee5a24; }
-        form .input-group input { width: 100%; padding: 12px; border: none; border-radius: 10px; font-size: 16px; text-align: center; background: rgba(255,255,255,0.9); color: #333; }
-        .submit-btn { background: white; padding: 15px 30px; border: none; border-radius: 12px; font-size: 18px; font-weight: 700; cursor: pointer; transition: all 0.3s ease; display: block; width: 100%; margin-top: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .questionnaire-section .submit-btn { color: #ee5a24; }
+        .unified-form .input-group { flex: 1; min-width: 150px; }
+        .unified-form label, .unified-form .question p { font-weight: 600; font-size: 16px; display: block; margin-bottom: 12px; }
+        .unified-form .options label { display: block; background: rgba(255, 255, 255, 0.85); color: #333; padding: 12px 15px; border-radius: 10px; margin-bottom: 8px; cursor: pointer; transition: all 0.2s ease-in-out; font-weight: 500; }
+        .unified-form .options label:hover { background: white; transform: scale(1.03); }
+        .unified-form .options input[type="radio"] { margin-right: 12px; transform: scale(1.1); accent-color: #ff7e5f; }
+        .unified-form .input-group input { width: 100%; padding: 12px; border: none; border-radius: 10px; font-size: 16px; text-align: center; background: rgba(255,255,255,0.9); color: #333; }
+        .submit-btn { background: white; color: #ff7e5f; padding: 15px 30px; border: none; border-radius: 12px; font-size: 18px; font-weight: 700; cursor: pointer; transition: all 0.3s ease; display: block; width: 100%; margin-top: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
         .submit-btn:hover { transform: translateY(-2px); }
-        #questionnaireResult { padding: 20px; border-radius: 15px; text-align: center; font-weight: 600; margin-top: 20px; font-size: 1.15em; color: white; transition: all 0.3s ease; }
-        #questionnaireResult p, #eduQuizResult p { margin: 0; }
-        .result-title { font-size: 1.3em; font-weight: 700; margin-bottom: 5px; }
-        .score-breakdown { font-size: 0.9em; opacity: 0.9; margin-top: 10px; }
-        .risiko-rendah { background: #2ecc71; }
-        .risiko-sedang { background: #f1c40f; color: #333;}
-        .risiko-tinggi { background: #e74c3c; }
-
-        /* MINI KUIS SECTION BARU */
-        .edu-quiz-section { background: linear-gradient(135deg, #6a82fb, #764ba2); }
-        .edu-quiz-section .submit-btn { color: #667eea; }
-        .edu-quiz-form .question { margin-bottom: 25px; }
-        .edu-quiz-form .question p { font-weight: 600; margin-bottom: 12px; }
-        .edu-quiz-form .options input[type="radio"] { accent-color: #764ba2; }
-        #eduQuizResult { background: rgba(0,0,0,0.2); padding: 20px; border-radius: 15px; text-align: center; font-weight: 600; margin-top: 20px; font-size: 1.15em; color: white; transition: all 0.3s ease; }
-        #eduQuizResult .feedback { font-style: italic; opacity: 0.9; margin-top: 10px; }
+        
+        /* HASIL GABUNGAN */
+        #unifiedResult { padding: 25px; border-radius: 15px; text-align: left; margin-top: 20px; transition: all 0.3s ease; border: 2px solid rgba(255,255,255,0.5); background: rgba(0,0,0,0.2); }
+        #unifiedResult hr { border: none; border-top: 1px solid rgba(255,255,255,0.5); margin: 20px 0; }
+        .result-block h4 { font-size: 1.4em; font-weight: 700; margin-bottom: 10px; }
+        .result-block .result-title { font-size: 1.2em; font-weight: 600; }
+        .result-block .score-breakdown, .result-block .feedback { font-size: 0.9em; opacity: 0.9; margin-top: 8px; }
+        .risiko-rendah { color: #2ecc71; }
+        .risiko-sedang { color: #f1c40f; }
+        .risiko-tinggi { color: #e74c3c; }
 
         /* EDUCATION CARDS */
         .education-section { max-width: 1200px; margin: 60px auto 0 auto; }
@@ -87,7 +79,7 @@
             .hero-title { font-size: 32px; }
             .hero-subtitle { font-size: 18px; }
             .hero-character { width: 250px; height: 250px; }
-            .feature-section, .quiz-section { padding: 30px 25px; }
+            .feature-section { padding: 30px 25px; }
             .education-title, .section-title { font-size: 28px; }
         }
     </style>
@@ -96,8 +88,8 @@
     <div class="container">
         <header class="header">
             <div class="header-left">
-                <div class="university-logo"><img src="https://i.imgur.com/your-base64-code-here.png" alt="Logo Universitas"></div>
-                <div class="remaja-logo"><img src="https://i.imgur.com/your-base64-code-here.png" alt="Logo Remaja Fit"></div>
+                <div class="university-logo"><img src="aset/logo.png" alt="Logo Universitas"></div>
+                <div class="remaja-logo"><img src="aset/Remaja_FIT.jpg" alt="Logo Remaja Fit"></div>
             </div>
             <h1 class="logo">Remaja FIT: Fokus, Inspiratif, Tanggap</h1>
         </header>
@@ -106,117 +98,57 @@
             <div class="hero-content">
                 <div class="hero-text">
                     <h2 class="hero-title">Deteksi Komprehensif Hipertensi Remaja</h2>
-                    <p class="hero-subtitle">Cek risikomu berdasarkan Gaya Hidup & Indeks Massa Tubuh (IMT) untuk generasi yang lebih sehat ❤️</p>
+                    <p class="hero-subtitle">Cek risikomu berdasarkan Gaya Hidup, IMT, dan Uji Pengetahuan dalam satu langkah mudah ❤️</p>
                 </div>
                 <div class="hero-character">
-                    <img src="https://i.imgur.com/your-base64-code-here.png" alt="Hero Character">
+                    <img src="aset/dokter.png" alt="Hero Character">
                 </div>
             </div>
         </section>
 
         <main class="main-content">
             <div class="content-wrapper">
-
-                <section class="feature-section questionnaire-section" id="deteksi">
-                    <h3 class="section-title">Cek Risiko Hipertensi Lengkap</h3>
-                    <form id="hypertension-form" class="questionnaire-form">
+                <section class="feature-section unified-section" id="deteksi-terpadu">
+                    <h3 class="section-title">Formulir Deteksi & Kuis Terpadu</h3>
+                    <form id="unified-form" class="unified-form">
                         <fieldset>
-                            <legend>🏃‍♂️ Data Fisik</legend>
+                            <legend>📊 Cek Risiko Kesehatan</legend>
                             <div class="input-group-wrapper"><div class="input-group"><label for="tinggi">Tinggi Badan (cm)</label><input type="number" id="tinggi" placeholder="165" required></div><div class="input-group"><label for="berat">Berat Badan (kg)</label><input type="number" id="berat" placeholder="55" required></div></div>
-                        </fieldset>
-                        <fieldset>
-                            <legend>🍔 Pola Makan</legend>
+                            <hr style="border:none; margin: 20px 0;">
                             <div class="question"><label>1. Frekuensi makan cepat saji/instan?</label><div class="options"><label><input type="radio" name="q1" value="0" required> Tidak pernah</label><label><input type="radio" name="q1" value="1"> 1–2 kali/minggu</label><label><input type="radio" name="q1" value="2"> 3–5 kali/minggu</label><label><input type="radio" name="q1" value="3"> > 5 kali/minggu</label></div></div>
                             <div class="question"><label>2. Frekuensi makan makanan asin/gurih?</label><div class="options"><label><input type="radio" name="q2" value="0" required> Jarang</label><label><input type="radio" name="q2" value="1"> Kadang-kadang</label><label><input type="radio" name="q2" value="2"> Sering</label><label><input type="radio" name="q2" value="3"> Hampir selalu</label></div></div>
-                        </fieldset>
-                        <fieldset>
-                            <legend>😴 Pola Tidur</legend>
-                             <div class="question"><label>3. Rata-rata jam tidur setiap malam?</label><div class="options"><label><input type="radio" name="q3" value="0" required> > 8 jam</label><label><input type="radio" name="q3" value="1"> 6–8 jam</label><label><input type="radio" name="q3" value="2"> 4–6 jam</label><label><input type="radio" name="q3" value="3"> Kurang dari 4 jam</label></div></div>
+                            <div class="question"><label>3. Rata-rata jam tidur setiap malam?</label><div class="options"><label><input type="radio" name="q3" value="0" required> > 8 jam</label><label><input type="radio" name="q3" value="1"> 6–8 jam</label><label><input type="radio" name="q3" value="2"> 4–6 jam</label><label><input type="radio" name="q3" value="3"> Kurang dari 4 jam</label></div></div>
                             <div class="question"><label>4. Seberapa sering tidur larut malam (> jam 12)?</label><div class="options"><label><input type="radio" name="q4" value="0" required> Tidak pernah</label><label><input type="radio" name="q4" value="1"> Kadang-kadang</label><label><input type="radio" name="q4" value="2"> Sering</label><label><input type="radio" name="q4" value="3"> Hampir setiap hari</label></div></div>
                         </fieldset>
-                        <button type="submit" class="submit-btn">Lihat Hasil Deteksi Lengkap</button>
+                        <fieldset>
+                            <legend>🧠 Uji Pengetahuan Hipertensi</legend>
+                            <div class="question"><p>1. Apa tujuan utama dari pemantauan dini hipertensi pada remaja?</p><div class="options"><label><input type="radio" name="edu_q1" value="incorrect" required> Menemukan obat baru</label><label><input type="radio" name="edu_q1" value="correct"> Mendeteksi risiko sejak dini</label><label><input type="radio" name="edu_q1" value="incorrect"> Mengurangi biaya pengobatan</label><label><input type="radio" name="edu_q1" value="incorrect"> Meningkatkan penjualan alat</label></div></div>
+                            <div class="question"><p>2. Mengapa edukasi gaya hidup sehat penting?</p><div class="options"><label><input type="radio" name="edu_q2" value="incorrect" required> Remaja sudah paham</label><label><input type="radio" name="edu_q2" value="correct"> Gaya hidup mempengaruhi tekanan darah</label><label><input type="radio" name="edu_q2" value="incorrect"> Sebagian besar remaja sudah hipertensi</label><label><input type="radio" name="edu_q2" value="incorrect"> Hanya untuk orang dewasa</label></div></div>
+                            <div class="question"><p>3. Salah satu pilar utama gaya hidup sehat adalah:</p><div class="options"><label><input type="radio" name="edu_q3" value="incorrect" required> Makan cepat saji setiap hari</label><label><input type="radio" name="edu_q3" value="incorrect"> Membatasi aktivitas fisik</label><label><input type="radio" name="edu_q3" value="correct"> Makan seimbang (buah & sayur)</label><label><input type="radio" name="edu_q3" value="incorrect"> Tidur kurang dari 5 jam</label></div></div>
+                            <div class="question"><p>4. Apa peran utama orang tua?</p><div class="options"><label><input type="radio" name="edu_q4" value="incorrect" required> Membiarkan belajar sendiri</label><label><input type="radio" name="edu_q4" value="correct"> Menjadi contoh gaya hidup sehat</label><label><input type="radio" name="edu_q4" value="incorrect"> Fokus pada akademik saja</label><label><input type="radio" name="edu_q4" value="incorrect"> Membeli semua makanan keinginan</label></div></div>
+                            <div class="question"><p>5. Pemeriksaan rutin tekanan darah penting untuk?</p><div class="options"><label><input type="radio" name="edu_q5" value="correct" required> Mendeteksi hipertensi tahap awal</label><label><input type="radio" name="edu_q5" value="incorrect"> Meningkatkan kecemasan</label><label><input type="radio" name="edu_q5" value="incorrect"> Hanya jika ada gejala parah</label><label><input type="radio" name="edu_q5" value="incorrect"> Mengidentifikasi penyakit lain</label></div></div>
+                        </fieldset>
+                        <button type="submit" class="submit-btn">Lihat Hasil & Skor Lengkap</button>
                     </form>
-                    <div id="questionnaireResult" class="hidden"></div>
+                    <div id="unifiedResult" class="hidden"></div>
                 </section>
-                
-                <section class="feature-section edu-quiz-section" id="mini-kuis">
-                    <h3 class="section-title">Mini Kuis: Paham Hipertensi?</h3>
-                    <form id="edu-quiz-form" class="edu-quiz-form">
-                        
-                        <div class="question">
-                            <p>1. Apa tujuan utama dari pemantauan dini hipertensi pada remaja?</p>
-                            <div class="options">
-                                <label><input type="radio" name="edu_q1" value="incorrect" required> Untuk menemukan obat baru yang lebih efektif.</label>
-                                <label><input type="radio" name="edu_q1" value="correct"> Untuk mendeteksi risiko dan masalah hipertensi sejak dini.</label>
-                                <label><input type="radio" name="edu_q1" value="incorrect"> Untuk mengurangi biaya pengobatan di masa depan.</label>
-                                <label><input type="radio" name="edu_q1" value="incorrect"> Untuk meningkatkan penjualan alat pengukur tekanan darah.</label>
-                            </div>
-                        </div>
-
-                        <div class="question">
-                            <p>2. Mengapa edukasi gaya hidup sehat penting dalam pencegahan hipertensi?</p>
-                            <div class="options">
-                                <label><input type="radio" name="edu_q2" value="incorrect" required> Karena remaja sudah memahami risiko kesehatan sepenuhnya.</label>
-                                <label><input type="radio" name="edu_q2" value="correct"> Karena gaya hidup sehat dapat secara langsung mempengaruhi tekanan darah.</label>
-                                <label><input type="radio" name="edu_q2" value="incorrect"> Karena sebagian besar remaja sudah memiliki hipertensi.</label>
-                                <label><input type="radio" name="edu_q2" value="incorrect"> Karena hanya orang dewasa yang perlu menjaga gaya hidup sehat.</label>
-                            </div>
-                        </div>
-
-                        <div class="question">
-                            <p>3. Salah satu pilar utama gaya hidup sehat untuk mencegah hipertensi adalah:</p>
-                            <div class="options">
-                                <label><input type="radio" name="edu_q3" value="incorrect" required> Mengonsumsi makanan cepat saji setiap hari.</label>
-                                <label><input type="radio" name="edu_q3" value="incorrect"> Membatasi aktivitas fisik dan lebih banyak bermain video game.</label>
-                                <label><input type="radio" name="edu_q3" value="correct"> Mengonsumsi makanan seimbang dengan porsi buah dan sayuran cukup.</label>
-                                <label><input type="radio" name="edu_q3" value="incorrect"> Tidur kurang dari 5 jam setiap malam.</label>
-                            </div>
-                        </div>
-
-                        <div class="question">
-                            <p>4. Apa peran orang tua dalam pemantauan dan edukasi dini hipertensi?</p>
-                            <div class="options">
-                                <label><input type="radio" name="edu_q4" value="incorrect" required> Membiarkan remaja belajar sendiri dari internet.</label>
-                                <label><input type="radio" name="edu_q4" value="correct"> Menjadi contoh gaya hidup sehat dan mendukung kebiasaan baik remaja.</label>
-                                <label><input type="radio" name="edu_q4" value="incorrect"> Hanya fokus pada prestasi akademik remaja.</label>
-                                <label><input type="radio" name="edu_q4" value="incorrect"> Membeli semua makanan yang diinginkan remaja, tanpa mempertimbangkan nutrisi.</label>
-                            </div>
-                        </div>
-
-                        <div class="question">
-                            <p>5. Pemeriksaan rutin tekanan darah pada remaja penting untuk?</p>
-                            <div class="options">
-                                <label><input type="radio" name="edu_q5" value="correct" required> Mendeteksi hipertensi pada tahap awal, bahkan jika tidak ada gejala.</label>
-                                <label><input type="radio" name="edu_q5" value="incorrect"> Meningkatkan kecemasan remaja tentang kesehatan mereka.</label>
-                                <label><input type="radio" name="edu_q5" value="incorrect"> Hanya dilakukan jika remaja sudah menunjukkan gejala parah.</label>
-                                <label><input type="radio" name="edu_q5" value="incorrect"> Mengidentifikasi penyakit lain yang tidak berhubungan dengan tekanan darah.</label>
-                            </div>
-                        </div>
-
-                        <button type="submit" class="submit-btn">Lihat Skor Kuis</button>
-                    </form>
-                    <div id="eduQuizResult" class="hidden"></div>
-                </section>
-                
-                </div>
-
+            </div>
             <section class="education-section">
                  <h3 class="education-title">Edukasi Interaktif</h3>
                 <div class="education-cards">
-                    <a href="hipertensi.html" class="education-card" style="text-decoration: none; color: inherit;"><div class="card-icon"><img src="https://i.imgur.com/your-base64-code-here.png" alt="Heart Icon"></div><div class="card-title">Apa Itu Hipertensi?</div><div class="card-description">Pelajari tentang tekanan darah tinggi, penyebab, dan dampaknya.</div></a>
-                    <a href="makanan.html" class="education-card" style="text-decoration: none; color: inherit;"><div class="card-icon"><img src="https://i.imgur.com/your-base64-code-here.png" alt="Food Icon"></div><div class="card-title">Makanan Sahabat Jantung</div><div class="card-description">Temukan makanan sehat untuk menjaga tekanan darah.</div></a>
-                    <a href="gerak.html" class="education-card" style="text-decoration: none; color: inherit;"><div class="card-icon"><img src="https://i.imgur.com/your-base64-code-here.png" alt="Exercise Icon"></div><div class="card-title">Gerak Itu Sehat</div><div class="card-description">Aktivitas fisik yang baik untuk kesehatan jantung.</div></a>
-                    <a href="herbal.html" class="education-card" style="text-decoration: none; color: inherit;"><div class="card-icon"><img src="https://i.imgur.com/your-base64-code-here.png" alt="Herbal Icon"></div><div class="card-title">Obat Herbal Alami</div><div class="card-description">Kenali tanaman herbal untuk menurunkan tekanan darah.</div></a>
-                    <a href="farmokologis.html" class="education-card" style="text-decoration: none; color: inherit;"><div class="card-icon"><img src="https://i.imgur.com/your-base64-code-here.png" alt="Medicine Icon"></div><div class="card-title">Obat Farmakologis</div><div class="card-description">Pelajari obat medis untuk hipertensi dan penggunaannya.</div></a>
+                    <a href="hipertensi.html" class="education-card" style="text-decoration: none; color: inherit;"><div class="card-icon"><img src="aset/jantung.png" alt="Heart Icon"></div><div class="card-title">Apa Itu Hipertensi?</div><div class="card-description">Pelajari tentang tekanan darah tinggi, penyebab, dan dampaknya.</div></a>
+                    <a href="makanan.html" class="education-card" style="text-decoration: none; color: inherit;"><div class="card-icon"><img src="aset/makanan.png" alt="Food Icon"></div><div class="card-title">Makanan Sahabat Jantung</div><div class="card-description">Temukan makanan sehat untuk menjaga tekanan darah.</div></a>
+                    <a href="gerak.html" class="education-card" style="text-decoration: none; color: inherit;"><div class="card-icon"><img src="aset/senam.png" alt="Exercise Icon"></div><div class="card-title">Gerak Itu Sehat</div><div class="card-description">Aktivitas fisik yang baik untuk kesehatan jantung.</div></a>
+                    <a href="herbal.html" class="education-card" style="text-decoration: none; color: inherit;"><div class="card-icon"><img src="aset/obat2.jpeg" alt="Herbal Icon"></div><div class="card-title">Obat Herbal Alami</div><div class="card-description">Kenali tanaman herbal untuk menurunkan tekanan darah.</div></a>
+                    <a href="farmokologis.html" class="education-card" style="text-decoration: none; color: inherit;"><div class="card-icon"><img src="aset/obat.jpeg" alt="Medicine Icon"></div><div class="card-title">Obat Farmakologis</div><div class="card-description">Pelajari obat medis untuk hipertensi dan penggunaannya.</div></a>
                 </div>
             </section>
         </main>
     </div>
 
     <script>
-        // --- SCRIPT UNTUK FORM DETEKSI RISIKO ---
-        document.getElementById('hypertension-form').addEventListener('submit', function(event) {
-            event.preventDefault(); 
+        document.getElementById('unified-form').addEventListener('submit', function(event) {
+            event.preventDefault();
             let lifestyleScore = parseInt(this.elements['q1'].value) + parseInt(this.elements['q2'].value) + parseInt(this.elements['q3'].value) + parseInt(this.elements['q4'].value);
             const tinggi = parseFloat(document.getElementById('tinggi').value);
             const berat = parseFloat(document.getElementById('berat').value);
@@ -229,52 +161,24 @@
                 else if (imt < 30) { imtScore = 2; imtCategory = `Gemuk (IMT ${imt.toFixed(1)})`; } 
                 else { imtScore = 3; imtCategory = `Obesitas (IMT ${imt.toFixed(1)})`; }
             } else { alert("Harap isi tinggi dan berat badan!"); return; }
-            const totalScore = lifestyleScore + imtScore;
-            const resultDiv = document.getElementById('questionnaireResult');
-            let resultTitle = '';
-            let resultClass = '';
+            const totalRiskScore = lifestyleScore + imtScore;
+            let riskTitle = '';
+            let riskClass = '';
             let scoreBreakdown = `(Skor Gaya Hidup: ${lifestyleScore} + Poin IMT: ${imtScore} dari kategori ${imtCategory})`;
-            if (totalScore <= 5) { resultTitle = `✅ Risiko Rendah (Total Skor: ${totalScore})`; resultClass = 'risiko-rendah'; } 
-            else if (totalScore <= 10) { resultTitle = `⚠️ Risiko Sedang (Total Skor: ${totalScore})`; resultClass = 'risiko-sedang'; } 
-            else { resultTitle = `🚨 Risiko Tinggi (Total Skor: ${totalScore})`; resultClass = 'risiko-tinggi'; }
-            resultDiv.innerHTML = `<p class="result-title">${resultTitle}</p><p class="score-breakdown">${scoreBreakdown}</p>`;
-            resultDiv.className = '';
-            resultDiv.classList.add(resultClass);
-            resultDiv.classList.remove('hidden');
-            resultDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        });
-
-        // --- SCRIPT UNTUK MINI KUIS BARU ---
-        document.getElementById('edu-quiz-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            let score = 0;
-            const correctAnswers = {
-                edu_q1: "correct",
-                edu_q2: "correct",
-                edu_q3: "correct",
-                edu_q4: "correct",
-                edu_q5: "correct"
-            };
-
-            for (const q in correctAnswers) {
-                const userAnswer = this.elements[q].value;
-                if (userAnswer === correctAnswers[q]) {
-                    score++;
-                }
-            }
-
-            const resultDiv = document.getElementById('eduQuizResult');
-            let feedbackText = '';
-
-            if (score === 5) {
-                feedbackText = "Luar biasa! Pemahaman Anda sangat baik.";
-            } else if (score >= 3) {
-                feedbackText = "Bagus! Anda sudah cukup paham.";
-            } else {
-                feedbackText = "Terus belajar, ya! Coba baca lagi materi edukasi di bawah.";
-            }
-
-            resultDiv.innerHTML = `<p class="result-title">Skor Anda: ${score} dari 5 Benar</p><p class="feedback">${feedbackText}</p>`;
+            if (totalRiskScore <= 5) { riskTitle = `✅ Risiko Rendah (Total Skor: ${totalRiskScore})`; riskClass = 'risiko-rendah'; } 
+            else if (totalRiskScore <= 10) { riskTitle = `⚠️ Risiko Sedang (Total Skor: ${totalRiskScore})`; riskClass = 'risiko-sedang'; } 
+            else { riskTitle = `🚨 Risiko Tinggi (Total Skor: ${totalRiskScore})`; riskClass = 'risiko-tinggi'; }
+            const riskResultHTML = `<div class="result-block"><h4>Hasil Deteksi Risiko</h4><p class="result-title ${riskClass}">${riskTitle}</p><p class="score-breakdown">${scoreBreakdown}</p></div>`;
+            let quizScore = 0;
+            const correctAnswers = { edu_q1: "correct", edu_q2: "correct", edu_q3: "correct", edu_q4: "correct", edu_q5: "correct" };
+            for (const q in correctAnswers) { if (this.elements[q] && this.elements[q].value === correctAnswers[q]) { quizScore++; } }
+            let quizFeedback = '';
+            if (quizScore === 5) { quizFeedback = "Luar biasa! Pemahaman Anda sangat baik."; } 
+            else if (quizScore >= 3) { quizFeedback = "Bagus! Anda sudah cukup paham."; } 
+            else { quizFeedback = "Terus belajar, ya! Coba baca lagi materi edukasi di bawah."; }
+            const quizResultHTML = `<div class="result-block"><h4>Hasil Kuis Pengetahuan</h4><p class="result-title">Skor Anda: ${quizScore} dari 5 Benar</p><p class="feedback">${quizFeedback}</p></div>`;
+            const resultDiv = document.getElementById('unifiedResult');
+            resultDiv.innerHTML = riskResultHTML + '<hr>' + quizResultHTML;
             resultDiv.classList.remove('hidden');
             resultDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
         });
